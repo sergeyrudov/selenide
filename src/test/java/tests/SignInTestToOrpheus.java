@@ -20,7 +20,7 @@ class SignInTestToOrpheus {
         open("https://vipqc03.orpheusdev.net/");
 
         //find search fields
-        $(byName("q")).setValue("Selenide").pressEnter();
+        $(byName("q")).setValue(credentials.getLogin()).pressEnter();
 
         //check that selenide is displayed in result
         $("html").shouldHave(text("ru.selenide.org"));
