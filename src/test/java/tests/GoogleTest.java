@@ -15,9 +15,9 @@ class GoogleTest {
         open("https://google.com");
 
         // Ввести Selenide в поиск
-        $(byName("q")).setValue("Selenide").pressEnter();
+        $(byName("q")).setValue("привет").pressEnter();
 
-        // Проверить, что Selenide появился в результатах поиска
-        $("html").shouldHave(text("ru.selenide.org"));
+        // Проверить, что "привет"появился в результатах поиска
+        $("html").shouldHave(text("привет"));
     }
 }

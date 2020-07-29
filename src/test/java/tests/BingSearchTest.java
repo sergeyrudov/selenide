@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 
@@ -12,6 +13,7 @@ class BingSearchTest {
     @Test
     void selenideBingSearch() {
         //open bing.com
+        Configuration.browser = "firefox";
         open("https://bing.com");
 
         //find search fields
