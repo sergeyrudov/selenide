@@ -11,13 +11,13 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 class SignInTestToOrpheus {
-    Credentials credentials = new Credentials();
+    private Credentials credentials = new Credentials();
 
     @Test
     void signInToOrpheus() {
         //open browser
         Configuration.browser = "firefox";
-        open("https://vipqc03.orpheusdev.net/");
+        open(credentials.getVipqc03());
 
         //find search fields
         $(byName("q")).setValue(credentials.getLogin()).pressEnter();
