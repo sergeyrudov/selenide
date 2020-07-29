@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+import resources.Credentials;
 
 
 import static com.codeborne.selenide.Condition.text;
@@ -9,12 +10,14 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-class BingSearchTest {
+class SignInTestToOrpheus {
+    Credentials credentials = new Credentials();
+
     @Test
-    void selenideBingSearch() {
-        //open bing.com
+    void signInToOrpheus() {
+        //open browser
         Configuration.browser = "firefox";
-        open("https://bing.com");
+        open("https://vipqc03.orpheusdev.net/");
 
         //find search fields
         $(byName("q")).setValue("Selenide").pressEnter();
