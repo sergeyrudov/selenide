@@ -15,12 +15,12 @@ class SignInTestToOrpheus {
 
     @Test
     void signInToOrpheus() {
-        //open browser
-        Configuration.browser = "firefox";
-        open(credentials.getVipqc03());
+        //replace chrome with required browser
+        Configuration.browser = "chrome";
+        open("https://google.com");
 
         //find search fields
-        $(byName("q")).setValue(credentials.getLogin()).pressEnter();
+        $(byName("q")).setValue("selenide").pressEnter();
 
         //check that selenide is displayed in result
         $("html").shouldHave(text("ru.selenide.org"));
