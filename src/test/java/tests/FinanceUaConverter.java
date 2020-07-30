@@ -25,7 +25,7 @@ class FinanceUaConverter {
         //get value of today currency exchange USD
         double currency_rate = Double.parseDouble($(By.id("currency_rate")).getValue());
 
-        //set amount 100
+        //set amount 123.50
         $(By.id("currency_amount"))
                 .setValue(String.valueOf(credentials.getAmount()));
 
