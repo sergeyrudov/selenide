@@ -9,9 +9,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 class BuyDellParts {
+    Credentials credentials = new Credentials();
+
     @Test
     void buySomePartsForDellLaptop() throws Exception {
-        Credentials credentials = new Credentials();
 
         //open dell.com
         open("https://www.dell.com/en-us");
@@ -51,5 +52,6 @@ class BuyDellParts {
         } catch (NoSuchElementException e) {
             System.out.println("Power AC adapter for laptop is absent");
         }
+
     }
 }
