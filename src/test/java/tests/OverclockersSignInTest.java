@@ -14,9 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class OverclockersSignInTest {
     @Test
     void overclockersSignIn() {
-        //create object with credentials
-        Credentials credentials = new Credentials();
-
         //open overclockers.ua
         open("https://forum.overclockers.ua");
 
@@ -25,7 +22,7 @@ class OverclockersSignInTest {
 
         //sign in flow
         $(By.id("username_q")).setValue(Credentials.getUsername());
-        $(By.id("password_q")).setValue(credentials.getPass());
+        $(By.id("password_q")).setValue(Credentials.getPass());
         $(By.name("login")).click();
 
         //ensure that username visible

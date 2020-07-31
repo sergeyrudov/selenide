@@ -10,26 +10,23 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 class BuyDellParts {
-    Credentials credentials = new Credentials();
-
     @Test
     void buySomePartsForDellLaptop() throws Exception {
-
         //open dell.com
         open("https://www.dell.com/en-us");
 
         //find search field, and fill with laptop model
         $(By.className("mh-search-input"))
-                .setValue(credentials.getNoteBookModel());
+                .setValue(Credentials.getNoteBookModel());
         $(By.className("mh-search-button-label")).click();
 
         // we can select needeed parts, depending on request input
-        if (credentials.getNoteBooksNeededPart() == "Battery") {
+        if (Credentials.getNoteBooksNeededPart() == "Battery") {
             selectCheckboxBattery();
-        } else if (credentials.getNoteBooksNeededPart() == "Power Adapter") {
+        } else if (Credentials.getNoteBooksNeededPart() == "Power Adapter") {
             selectCheckboxPowerAdapter();
         } else {
-            throw new Exception(credentials.getNoteBooksNeededPart() + " wasn't find");
+            throw new Exception(Credentials.getNoteBooksNeededPart() + " wasn't find");
         }
     }
 
