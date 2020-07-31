@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class OverclockersSignInTest {
     @Test
-    void overclockersSignIn(){
+    void overclockersSignIn() {
         //create object with credentials
         Credentials credentials = new Credentials();
         Configuration.holdBrowserOpen = true;
@@ -26,7 +26,7 @@ class OverclockersSignInTest {
         $(".dropdown-toggle").click();
 
         //sign in flow
-        $(By.id("username_q")).setValue(credentials.getUsername());
+        $(By.id("username_q")).setValue(Credentials.getUsername());
         $(By.id("password_q")).setValue(credentials.getPass());
         $(By.name("login")).click();
 
@@ -34,8 +34,11 @@ class OverclockersSignInTest {
         $(By.className("username")).shouldBe(Condition.visible);
 
         //assert that credentials.username == visible username
-        assertEquals($(By.className("username")).getText(), credentials.getUsername());
+        assertEquals($(By.className("username")).getText(), Credentials.getUsername());
+    }
 
+    @Test
+    void checkUrlSid() {
         //get url sessionid and ensure that sid!=null
         assertNotNull(url().split("sid=")[1]);
     }
