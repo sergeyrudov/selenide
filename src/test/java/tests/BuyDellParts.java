@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import resources.Credentials;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -39,7 +40,8 @@ class BuyDellParts {
             $(By.partialLinkText("Battery")).click();
             $(By.partialLinkText("Add to Ca")).click();
         } catch (NoSuchElementException e) {
-            System.out.println("Battery for laptop is absent");
+            System.out.println(Credentials.getNoteBooksNeededPart() +
+                    " part for laptop is absent");
         }
     }
 
@@ -50,7 +52,8 @@ class BuyDellParts {
             $(By.partialLinkText("AC Adapter")).click();
             $(By.partialLinkText("Add to Ca")).click();
         } catch (NoSuchElementException e) {
-            System.out.println("Power AC adapter for laptop is absent");
+            System.out.println(Credentials.getNoteBooksNeededPart() +
+                    " part for laptop is absent");
         }
 
     }
