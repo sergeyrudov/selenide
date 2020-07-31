@@ -21,10 +21,10 @@ class BuyDellParts {
         $(By.className("mh-search-button-label")).click();
 
         // we can select needeed parts, depending on request input
-        if (Credentials.getNoteBooksNeededPart() == "Battery") {
-            selectCheckboxBattery();
-        } else if (Credentials.getNoteBooksNeededPart() == "Power Adapter") {
-            selectCheckboxPowerAdapter();
+        if (Credentials.getNoteBooksNeededPart().
+                equals("Battery")) { selectCheckboxBattery();
+        } else if (Credentials.getNoteBooksNeededPart().
+                equals("Power Adapter")) { selectCheckboxPowerAdapter();
         } else {
             throw new Exception(Credentials.getNoteBooksNeededPart() + " wasn't find");
         }
@@ -52,6 +52,5 @@ class BuyDellParts {
             System.out.println(Credentials.getNoteBooksNeededPart() +
                     " part for laptop is absent");
         }
-
     }
 }
