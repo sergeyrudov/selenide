@@ -17,7 +17,6 @@ class OverclockersSignInTest {
     void overclockersSignIn() {
         //create object with credentials
         Credentials credentials = new Credentials();
-        Configuration.holdBrowserOpen = true;
 
         //open overclockers.ua
         open("https://forum.overclockers.ua");

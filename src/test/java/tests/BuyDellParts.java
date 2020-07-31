@@ -13,7 +13,6 @@ class BuyDellParts {
     @Test
     void buySomePartsForDellLaptop() throws Exception {
         Credentials credentials = new Credentials();
-        Configuration.holdBrowserOpen = true;
 
         //open dell.com
         open("https://www.dell.com/en-us");
