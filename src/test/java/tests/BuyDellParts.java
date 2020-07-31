@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class BuyDellParts {
+class BuyDellParts {
     @Test
     void buySomePartsForDellLaptop() throws Exception {
         Credentials credentials = new Credentials();

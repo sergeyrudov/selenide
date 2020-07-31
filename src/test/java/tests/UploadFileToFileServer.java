@@ -18,21 +18,16 @@ import java.io.File;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class UploadFileToFileServer {
+class UploadFileToFileServer {
     @Test
     void uploadSomeFile(){
-
-
-        System.setProperty("webdriver.chrome.driver", "src/test/java/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-
+    Configuration.holdBrowserOpen = true;
 
 
         File file = new File("F:\\selenide\\src\\test\\java\\resources\\enot.jpg");
 
-        driver.get("https://ru.files.fm/");
-        driver.findElement(By.id("uploadifive-file_upload")).sendKeys("F:/selenide/src/test/java/resources/enot.jpg");
-   //     $(By.id("simple_file_select_button")).uploadFromClasspath("F:\\selenide\\src\\test\\java\\resources\\enot.jpg");;
+        open("https://ru.files.fm/");
+        $(By.id("uploadifive-file_upload")).uploadFile(file);;
 
 
       //  File file = new File("F:/selenide/src/test/java/resources/enot.jpg");
