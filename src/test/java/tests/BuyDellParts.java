@@ -31,7 +31,7 @@ class BuyDellParts {
         }
     }
 
-    //method buying battery
+    //method which select battery checkbox
     static void selectCheckboxBattery() {
         try {
             $(By.xpath("//span[contains(text(),'Notebook Battery')]")).shouldBe(visible).click();
@@ -42,7 +42,7 @@ class BuyDellParts {
         }
     }
 
-    //method buying AC power adapter
+    //method which select AC power adapter checkbox
     static void selectCheckboxPowerAdapter() {
         try {
             $(By.xpath("//span[contains(text(),'Power Adapter')]")).shouldBe(visible).click();
