@@ -3,12 +3,10 @@ package tests;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import resources.Credentials;
-
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
