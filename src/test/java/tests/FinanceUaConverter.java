@@ -11,6 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class FinanceUaConverter {
+    //verify that input amount >=0
+    @Test
+    void verifyAmount() throws NullPointerException{
+        assert Credentials.getAmount()>=0;
+    }
+
     @Test
     void testCalculation() {
         //open finance.i.ua
