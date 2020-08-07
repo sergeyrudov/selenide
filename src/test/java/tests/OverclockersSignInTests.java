@@ -11,25 +11,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
-class OverclockersSignInTest {
+class OverclockersSignInTests {
     @Test
-    void overclockersSignIn() {
+    void overclockersSignInTest() {
         //open overclockers.ua
         open("https://forum.overclockers.ua");
 
         //open login window
-        $(".dropdown-toggle").click();
+        $(byText("Вход")).click();
 
         //sign in flow
-        $(By.id("username_q")).setValue(Credentials.getUsername());
-        $(By.id("password_q")).setValue(Credentials.getPass());
-        $(By.name("login")).click();
-
-        //ensure that username visible
-        $(By.className("username")).shouldBe(Condition.visible);
+        $("#username_q").setValue(Credentials.getUsername());
+        $("#password_q").setValue(Credentials.getPass()).pressEnter();
 
         //assert that credentials.username == visible username
-        assertEquals($(By.className("username")).getText(), Credentials.getUsername());
+        // assertEquals($("#username").getText(), Credentials.getUsername());
+        $("#username").shouldHave(text(Credentials.getUsername()));
     }
 
     @Test
