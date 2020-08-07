@@ -12,8 +12,9 @@ import static com.codeborne.selenide.Selenide.open;
 class BingSearchTest {
     @Test
     void selenideBingSearch() {
-        //open bing.com
         Configuration.browser = "firefox";
+
+        //open bing.com
         open("https://bing.com");
 
         //find search fields
