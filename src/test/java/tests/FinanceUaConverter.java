@@ -15,6 +15,12 @@ class FinanceUaConverter {
     @Test
     void verifyInputAmount() {
         assert Credentials.getAmount() >= 0;
+        assertTrue(Credentials.getAmount() >= 0, "пояснение");
+        
+        
+        // Arrange / Given
+        // Act / When
+        // Assert / Then
     }
 
     @Test
@@ -23,19 +29,19 @@ class FinanceUaConverter {
         open("http://finance.i.ua");
 
         //get value of today currency exchange USD
-        double currency_rate = Double.parseDouble
-                (Objects.requireNonNull($(By.id("currency_rate")).getValue()));
+        double currencyRate = Double.parseDouble
+                (Objects.requireNonNull($("#currency_rate").getValue()));
 
         //set amount 123.50
-        $(By.id("currency_amount"))
+        $("#currency_amount")
                 .setValue(String.valueOf(Credentials.getAmount()));
 
         // get result and replace " " to ""
-        String result = $(By.id("currency_exchange"))
+        String result = $("#currency_exchange")
                 .getValue().replaceAll("\\s+", "");
 
         //assert that result = amount*currency_rate
         assertEquals(result,
-                String.format("%.2f", currency_rate * Credentials.getAmount()));
+                String.format("%.2f", currencyRate * Credentials.getAmount()));
     }
 }
