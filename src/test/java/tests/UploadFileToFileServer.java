@@ -26,7 +26,7 @@ class UploadFileToFileServer {
     File file = new File("F:\\selenide\\src\\test\\java\\resources\\enot.jpg");
 
     open("https://ru.files.fm/");
-    $(By.id("file_upload")).uploadFile(file);;
+    $(By.id("uploadifive-file_upload")).uploadFile(file);;
 
 
       //  File file = new File("F:/selenide/src/test/java/resources/enot.jpg");
