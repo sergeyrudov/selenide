@@ -30,3 +30,4 @@ class AlfabankTests {
         assertEquals(homePage + "/make-money/strahovanie_vkladov/", url());
     }
 }
+//sibling(), preceding(), parent(), closest()

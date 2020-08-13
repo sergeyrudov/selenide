@@ -1,22 +1,35 @@
 package tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
+import pages.GooglePage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 class GoogleTest {
+    GooglePage googlePage = new GooglePage();
     @Test
     void selenideSearchTest() {
-        // Открыть google
-        open("https://google.com");
+        SelenideLogger.addListener("allureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true));
+        String seachText = "Привет";
 
-        // Ввести Selenide в поиск
-        $(byName("q")).setValue("привет").pressEnter();
+        step("Open google", () -> {
+            googlePage.openMainPage();
+        });
 
-        // Проверить, что "привет"появился в результатах поиска
-        $("html").shouldHave(text("привет"));
+        step("Input searchtext", () -> {
+            googlePage.typeSearch(seachText);
+        });
+
+        step("Verify value", () -> {
+            googlePage.verify(seachText);
+        });
     }
 }
