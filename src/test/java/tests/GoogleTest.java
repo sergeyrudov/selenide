@@ -5,20 +5,19 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pages.GooglePage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byName;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+
 import static io.qameta.allure.Allure.step;
 
 class GoogleTest {
-    GooglePage googlePage = new GooglePage();
+    private GooglePage googlePage = new GooglePage();
+    private String seachText = "Привет";
+
     @Test
     void selenideSearchTest() {
         SelenideLogger.addListener("allureSelenide", new AllureSelenide()
                 .screenshots(true)
-                .savePageSource(true));
-        String seachText = "Привет";
+                .savePageSource(true)
+        );
 
         step("Open google", () -> {
             googlePage.openMainPage();

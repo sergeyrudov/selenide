@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.*;
@@ -9,25 +11,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class AlfabankTests {
-    private static String homePage = "https://alfabank.ru";
+
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.baseUrl = "https://alfabank.ru";
+    }
 
     @Test
     void verifyQuantityOfArchives() {
-        open(homePage);
+        open("");
         $(byTitle("Вклады")).hover();
         $(byTitle("Депозиты")).click();
         $(byLinkText("Архивные депозиты")).click();
         $$(".product-cell__cell").shouldHaveSize(3);
-        assertEquals(homePage + "/make-money/deposits/archive/", url());
+        assertEquals(Configuration.baseUrl + "/make-money/deposits/archive/", url());
     }
 
     @Test
     void navigateToDepositInsurance() {
-        open(homePage);
+        open("");
         $(byTitle("Вклады")).hover();
         $(byTitle("Депозиты")).click();
         $(".selected").sibling(3).click();
-        assertEquals(homePage + "/make-money/strahovanie_vkladov/", url());
+        assertEquals(Configuration.baseUrl + "/make-money/strahovanie_vkladov/", url());
     }
 }
 //sibling(), preceding(), parent(), closest()
