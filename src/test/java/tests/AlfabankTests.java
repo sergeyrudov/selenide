@@ -9,24 +9,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class AlfabankTests {
-    private static String homePage = "https://alfabank.ru";
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.baseUrl = "https://alfabank.ru";
+    }
 
     @Test
-    void verifyQuantityOfArchives() {
-        open(homePage);
+    void quantityOfArchivesTest() {
+        open("");
+        
         $(byTitle("Вклады")).hover();
         $(byTitle("Депозиты")).click();
         $(byLinkText("Архивные депозиты")).click();
         $$(".product-cell__cell").shouldHaveSize(3);
+        
         assertEquals(homePage + "/make-money/deposits/archive/", url());
     }
 
     @Test
-    void navigateToDepositInsurance() {
-        open(homePage);
+    void navigateToDepositInsuranceTest() {
+        open("");
+        
         $(byTitle("Вклады")).hover();
         $(byTitle("Депозиты")).click();
         $(".selected").sibling(3).click();
+        
         assertEquals(homePage + "/make-money/strahovanie_vkladov/", url());
     }
 }
