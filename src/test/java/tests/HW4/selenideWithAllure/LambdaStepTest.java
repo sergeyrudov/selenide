@@ -19,9 +19,6 @@ class LambdaStepTest {
     static final String TARGETURL = "/sergeyrudov/selenide/issues/";
     public static int issueNmbr;
 
-    public static int getIssueNmbr() {
-        return issueNmbr;
-    }
 
     @BeforeAll
     static void initBaseUrlAndLogger() {
@@ -55,8 +52,7 @@ class LambdaStepTest {
             parameter("Issue " + issueNmbr + "was deleted", issueNmbr);
             System.out.println(issueNmbr);
             $(".js-form-action-text").click();
+            //TODO: check that issue closed
         });
-
-
     }
 }

@@ -30,6 +30,7 @@ public class BaseSteps {
         $(byName("login")).sendKeys(username);
         $(byName("password")).sendKeys(password);
         $(byValue("Sign in")).click();
+        //TODO: add verification that user signed in
     }
 
     @Step("Navigate to repository")
