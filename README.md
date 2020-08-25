@@ -1,1 +1,1 @@
-    ¯\_(ツ)_/¯ 
+gradle simple_tests -Dvalue=5 -Dtext=apple
