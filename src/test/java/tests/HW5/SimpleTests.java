@@ -5,15 +5,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 @Tag("simple_tests")
 public class SimpleTests {
 
     @Test
     void parametrizedTest() {
-        int a = 2; // gradle simple_tests -Da=5
-        int b = 3; //from terminal, gradle simple_tests -Db=3
+        int a = 3;
+        String b = System.getProperty("value");  //from terminal, gradle simple_tests -Dvalue=5
+        int intValue = Integer.parseInt(b);
 
-        assertEquals(a * b,  15);
+        assertEquals(a * intValue,  15);
     }
 
+    @Test
+    void parametrizedStringTest() {
+        String b = System.getProperty("text");  //from terminal, gradle apple_tests -Dtext=apple
+
+        assertEquals("apple", b, "b = " + b);
+    }
 }

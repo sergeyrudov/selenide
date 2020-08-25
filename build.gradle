@@ -36,6 +36,7 @@ dependencies {
     testImplementation 'io.rest-assured:rest-assured:4.3.1'
     testImplementation 'io.qameta.allure:allure-rest-assured:2.13.5'
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.11.2'
+    testImplementation 'ch.qos.logback:logback-classic:1.2.3'
     
     testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
@@ -46,9 +47,25 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.withType(Test) {
+    systemProperties = System.properties
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
 task simple_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'simple_tests'
     }
 }
+
+/*task apple_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'apple_tag'
+    }
+}*/
 
