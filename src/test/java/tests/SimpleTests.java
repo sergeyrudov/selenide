@@ -1,4 +1,4 @@
-package tests.HW5;
+package tests;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
