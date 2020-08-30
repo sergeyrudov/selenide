@@ -28,8 +28,8 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getBrowserConsoleLogs());
-        attachAsText("Client console logs", getClientConsoleLogs());
-        
+       // attachAsText("Client console logs", getClientConsoleLogs());
+
         closeWebDriver();
     }
 
@@ -40,5 +40,4 @@ public class TestBase {
     public static String getClientConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(String.valueOf(CLIENT)));
     }
-
 }
