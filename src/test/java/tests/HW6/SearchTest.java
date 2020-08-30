@@ -1,5 +1,6 @@
 package tests.HW6;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -20,6 +21,7 @@ public class SearchTest {
 
     @Test
     void selenideSearchTest() {
+        Configuration.headless = true;
         SelenideLogger.addListener("allureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true)
