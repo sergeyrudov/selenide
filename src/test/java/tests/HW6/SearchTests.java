@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.GooglePage;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
@@ -47,8 +50,16 @@ public class SearchTests extends TestBase{
     @DisplayName("Open jenkins job by unsigned user")
     void negativeJenkinsTest() {
         step("Open jenkins job", () -> {
+            final String regex = "[SEVERE]";
+            final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
+            final Matcher matcher = pattern.matcher(getBrowserConsoleLogs());
             open("https://jenkins.autotests.cloud/view/Group%203/job/sergeyr_testInBrowser/");
-            //TODO make assert to find errors in console
+            while (matcher.find()) {
+                System.out.println("Full match: " + matcher.group(0));
+                for (int i = 1; i <= matcher.groupCount(); i++) {
+                    System.out.println("Group " + i + ": " + matcher.group(i));
+                }
+            }
         });
     }
 }
