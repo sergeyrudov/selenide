@@ -16,7 +16,7 @@ import static io.qameta.allure.Allure.step;
 @Tag("run_test_in_browser")
 @Owner("SergeyR")
 @Feature("Running test in browser")
-public class SearchTest extends TestBase{
+public class SearchTests extends TestBase{
 
     private GooglePage googlePage = new GooglePage();
     private String seachText = "Привет";
