@@ -21,7 +21,7 @@ allure {
     autoconfigure = true
     version = '2.13.5'
 
-    useJUnit5(){
+    useJUnit5 {
         version = '2.13.5'
     }
 }
@@ -52,7 +52,7 @@ tasks.withType(Test) {
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
+            exceptionFormat "full"
         }
     }
 }
@@ -63,9 +63,8 @@ task simple_tests(type: Test) {
     }
 }
 
-/*task apple_tests(type: Test) {
+task run_test_in_browser(type: Test) {
     useJUnitPlatform {
-        includeTags 'apple_tag'
+        includeTags 'run_test_in_browser'
     }
-}*/
-
+}
