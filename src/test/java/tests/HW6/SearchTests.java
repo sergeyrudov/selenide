@@ -52,8 +52,10 @@ public class SearchTests extends TestBase{
         step("Open jenkins job", () -> {
             final String regex = "[SEVERE]";
             final Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
-            final Matcher matcher = pattern.matcher(getBrowserConsoleLogs());
             open("https://jenkins.autotests.cloud/view/Group%203/job/sergeyr_testInBrowser/");
+            final Matcher matcher = pattern.matcher(getBrowserConsoleLogs());
+            //how to verify that consoleLogs does not contain [SEVERE]
+            System.out.println(matcher);
             while (matcher.find()) {
                 System.out.println("Full match: " + matcher.group(0));
                 for (int i = 1; i <= matcher.groupCount(); i++) {
