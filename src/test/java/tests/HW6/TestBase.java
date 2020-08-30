@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static io.qameta.allure.selenide.LogType.BROWSER;
+import static io.qameta.allure.selenide.LogType.CLIENT;
 import static tests.HW6.helpers.AttachmentsHelper.*;
 
 
@@ -26,13 +27,18 @@ public class TestBase {
     public void afterEach() {
         attachScreenshot("Last screenshot");
         attachPageSource();
-        attachAsText("Browser console logs", getConsoleLogs());
-
+        attachAsText("Browser console logs", getBrowserConsoleLogs());
+        attachAsText("Client console logs", getClientConsoleLogs());
+        
         closeWebDriver();
     }
 
-    public static String getConsoleLogs() {
+    public static String getBrowserConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(String.valueOf(BROWSER)));
+    }
+
+    public static String getClientConsoleLogs() {
+        return String.join("\n", Selenide.getWebDriverLogs(String.valueOf(CLIENT)));
     }
 
 }

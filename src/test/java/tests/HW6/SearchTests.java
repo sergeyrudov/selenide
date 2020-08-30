@@ -48,6 +48,7 @@ public class SearchTests extends TestBase{
     void negativeJenkinsTest() {
         step("Open jenkins job", () -> {
             open("https://jenkins.autotests.cloud/view/Group%203/job/sergeyr_testInBrowser/");
+            //TODO make assert to find errors in console
         });
     }
 }
