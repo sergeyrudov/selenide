@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.GooglePage;
+import tests.HW7.TestBase;
 
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @Tag("run_test_in_browser")
 @Owner("SergeyR")
 @Feature("Running test in browser")
-public class SearchTests extends TestBase{
+public class SearchTests extends TestBase {
 
     private GooglePage googlePage = new GooglePage();
     private String seachText = "Привет";
