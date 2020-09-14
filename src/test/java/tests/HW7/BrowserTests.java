@@ -23,7 +23,6 @@ class BrowserTests extends TestBase {
     @Description("Google test, we look for wikipedia")
     @DisplayName("Successfull search for wiki in google")
     void successfullSearch() {
-        Configuration.headless = false;
         open("http://google.com");
 
         $(byName("q")).val("wikipedia").pressEnter();
