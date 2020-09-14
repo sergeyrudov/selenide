@@ -68,3 +68,9 @@ task run_test_in_browser(type: Test) {
         includeTags 'run_test_in_browser'
     }
 }
+
+task video_record_test(type: Test) {
+    useJUnitPlatform {
+        includeTags 'video_record_test'
+    }
+}
