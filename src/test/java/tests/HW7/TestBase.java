@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import tests.HW7.drivers.CustomWebDriver;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
@@ -21,6 +22,7 @@ public class TestBase {
         addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true));
+        Configuration.browser = CustomWebDriver.class.getName();
     }
 
     @AfterEach
@@ -29,16 +31,11 @@ public class TestBase {
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getBrowserConsoleLogs());
-       // attachAsText("Client console logs", getClientConsoleLogs());
 
         closeWebDriver();
     }
 
     public static String getBrowserConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(String.valueOf(BROWSER)));
-    }
-
-    public static String getClientConsoleLogs() {
-        return String.join("\n", Selenide.getWebDriverLogs(String.valueOf(CLIENT)));
     }
 }
