@@ -22,6 +22,8 @@ public class TestBase {
         addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true));
+        System.setProperty("selenoid_url", "https://user1:1234@selenoid.autotests.cloud:4444/wd/hub/");
+
         Configuration.browser = CustomWebDriver.class.getName();
     }
 
