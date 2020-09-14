@@ -1,5 +1,6 @@
 package tests.HW7;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -22,6 +23,7 @@ class BrowserTests extends TestBase {
     @Description("Google test, we look for wikipedia")
     @DisplayName("Successfull search for wiki in google")
     void successfullSearch() {
+        Configuration.headless = false;
         open("http://google.com");
 
         $(byName("q")).val("wikipedia").pressEnter();
