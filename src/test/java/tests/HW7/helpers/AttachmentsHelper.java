@@ -51,5 +51,4 @@ public class AttachmentsHelper {
     public static String getSessionId(){
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString().replace("selenoid","");
     }
-
 }

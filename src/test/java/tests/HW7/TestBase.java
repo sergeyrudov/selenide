@@ -37,5 +37,4 @@ class TestBase {
     public static String getBrowserConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
-
 }
